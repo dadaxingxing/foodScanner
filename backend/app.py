@@ -29,7 +29,6 @@ def get_cal(barcode):
     protein_grams_serving = nutriment.get('proteins_serving', 0)
 
     
-
     return result
 
 
