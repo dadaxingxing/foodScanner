@@ -1,5 +1,10 @@
 import re
 
+def validUnit(unit):
+    valid = {}
+    return unit in valid
+
+
 def parseServingSize(serving_size_str):
     if not serving_size_str:
         return None, None
@@ -15,10 +20,10 @@ def parseServingSize(serving_size_str):
     # Parse the first instance of number and a unit
     pattern = r'([1-9]?[0-9]*(?:[.][0-9]*)?)[ ]?([a-zA-Z]*)'
     match = re.search(pattern, serving_size_str)
+    num = match.group(1)
+    unit = match.group(2)
 
-    if match.group(1) and match.group(2):
-        num = match.group(1)
-        unit = match.group(2)
+    if num and unit and validUnit(unit):
         return (num, unit)
     else:
         return None, None
