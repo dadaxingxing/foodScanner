@@ -14,7 +14,6 @@ def get_cal(barcode):
     # if request.method != 'GET':
     #     return jsonify({'message': 'invalid request type'}), 400
 
-    convert_to_kcal = lambda num: num if energy_unit == 'kcal' else num / 4.184
     
     result = requests.get(f'https://world.openfoodfacts.net/api/v2/product/{barcode}?fields=product_name,nutriments,serving_size,product_quantity').json()
 
@@ -25,27 +24,27 @@ def get_cal(barcode):
 
 
     nutriment =  result['product']['nutriments']
-    energy_unit = nutriment.get('energy_serving_unit', 'kcal')
-    fat_grams_serving = convert_to_kcal(nutriment.get('fat_serving', 0))    
-    carb_grams_serving = convert_to_kcal(nutriment.get('carbohydrates_serving', 0))
-    protein_grams_serving = convert_to_kcal(nutriment.get('proteins_serving', 0))
-
-    fat_cal_serving = fat_grams_serving * 9
-    carb_cal_serving = carb_grams_serving * 4
-    protein_cal_serving = protein_grams_serving * 4
-    total_cal_serving = fat_cal_serving + carb_cal_serving + protein_cal_serving
+    fat_grams_100g = nutriment.get('fat_100g', 0)    
+    carb_grams_100g = nutriment.get('carbohydrates_100g', 0)
+    protein_grams_100g = nutriment.get('proteins_100g', 0)
+    
+    fat_cal_100g = fat_grams_100g * 9
+    carb_cal_100g = carb_grams_100g * 4
+    protein_cal_100g = protein_grams_100g * 4
+    total_cal_100g = fat_cal_100g + carb_cal_100g + protein_cal_100g
 
     
     final_result = {
         'food_name': product_name,
-        'fat_cal_serving': fat_cal_serving,
-        'carb_cal_serving': carb_cal_serving,
-        'protein_cal_serving': protein_cal_serving,
-        'total_cal_serving': total_cal_serving
+        'fat_cal_100g': fat_cal_100g,
+        'carb_cal_100g': carb_cal_100g,
+        'protein_cal_100g': protein_cal_100g,
+        'total_cal_100g': total_cal_100g
     }
 
     # End goal: find total calories along with all macro calories
-    return final_result
+    # return final_result
+    return result
 
 
 

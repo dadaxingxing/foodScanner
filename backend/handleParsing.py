@@ -1,7 +1,7 @@
 import re
 
 def validUnit(unit):
-    valid = {}
+    valid = {'g', 'grams', 'gram', 'mil', 'ml', 'millimeter'}
     return unit in valid
 
 
@@ -23,7 +23,7 @@ def parseServingSize(serving_size_str):
     num = match.group(1)
     unit = match.group(2)
 
-    if num and unit and validUnit(unit):
+    if num and unit and validUnit(unit.lower()):
         return (num, unit)
     else:
         return None, None
