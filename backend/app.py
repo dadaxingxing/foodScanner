@@ -3,7 +3,7 @@ import pprint
 from flask import Flask, request, jsonify
 
 from handleParsing import parseServingSize
-from calcTotalServing import calcTotalServing
+from backend.inferUnit import inferProductUnit
 
 app = Flask(__name__)
 app.secret_key = 'abc'
@@ -33,6 +33,7 @@ def get_cal(barcode):
     protein_cal_100g = protein_grams_100g * 4
     total_cal_100g = fat_cal_100g + carb_cal_100g + protein_cal_100g
 
+
     
     final_result = {
         'food_name': product_name,
@@ -43,8 +44,7 @@ def get_cal(barcode):
     }
 
     # End goal: find total calories along with all macro calories
-    # return final_result
-    return result
+    return final_result
 
 
 
