@@ -3,7 +3,7 @@ import pprint
 from flask import Flask, request, jsonify
 
 from handleParsing import parseServingSize
-from backend.inferUnit import inferProductUnit
+from inferUnit import inferProductUnit
 
 app = Flask(__name__)
 app.secret_key = 'abc'
@@ -36,11 +36,12 @@ def get_cal(barcode):
 
     total = {}
     product = result['product']
-    status = inferProductUnit(product) and product.get('product_quantity', False)
+    status = inferProductUnit(product) and ('product_quantity' in product)
+    print('product_quantity' in product, inferProductUnit(product))
     total['status'] = status
 
     if status:
-        scale_factor = product['product_quantity'] / 100
+        scale_factor = int(product['product_quantity']) / 100
 
         total['fat_cal'] = fat_cal_100g * scale_factor
         total['carb_cal'] = carb_cal_100g * scale_factor
