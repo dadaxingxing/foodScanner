@@ -18,7 +18,4 @@ def inferProductUnit(data):
     serving_size = data.get('serving_size', '').lower()
 
     lookUp = f'{name}{quantity}{serving_size}'
-    if any(keyWord in lookUp for keyWord in liquid_keywords):
-        return 'ml'
-    else:
-        return 'g'
+    return not any(keyWord in lookUp for keyWord in liquid_keywords)

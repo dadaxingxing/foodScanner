@@ -34,13 +34,29 @@ def get_cal(barcode):
     total_cal_100g = fat_cal_100g + carb_cal_100g + protein_cal_100g
 
 
-    
+    total = {}
+    product = result['product']
+    status = inferProductUnit(product) and product.get('product_quantity', False)
+    total['status'] = status
+
+    if status:
+        scale_factor = product['product_quantity'] / 100
+
+        total['fat_cal'] = fat_cal_100g * scale_factor
+        total['carb_cal'] = carb_cal_100g * scale_factor
+        total['protein_cal'] = protein_cal_100g * scale_factor
+        total['total_cal'] = total['carb_cal'] + total['protein_cal'] + total['fat_cal']
+
     final_result = {
         'food_name': product_name,
-        'fat_cal_100g': fat_cal_100g,
-        'carb_cal_100g': carb_cal_100g,
-        'protein_cal_100g': protein_cal_100g,
-        'total_cal_100g': total_cal_100g
+        '100g': {
+            'fat_cal_100g': fat_cal_100g,
+            'carb_cal_100g': carb_cal_100g,
+            'protein_cal_100g': protein_cal_100g,
+            'total_cal_100g': total_cal_100g
+
+        },
+        'total': total
     }
 
     # End goal: find total calories along with all macro calories
