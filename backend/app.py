@@ -18,7 +18,7 @@ def get_cal(barcode):
     result = requests.get(f'https://world.openfoodfacts.net/api/v2/product/{barcode}?fields=product_name,nutriments,serving_size,product_quantity').json()
 
     if result['status'] == 0:
-        return 'Barcode not found'
+        return jsonify({'message': 'Barcode not found'}), 400
     
     product_name = result['product'].get('product_name', 0)
 
@@ -61,7 +61,7 @@ def get_cal(barcode):
     }
 
     # End goal: find total calories along with all macro calories
-    return final_result
+    return jsonify(final_result), 200
 
 
 
