@@ -1,0 +1,16 @@
+:root{
+    --red: #ff00008b;
+    --white: #ffffff;
+}
+
+.message_container{
+    white-space: nowrap;
+    display: inline-block;
+    background-color: var(--red);
+    border-radius: 1rem;
+    padding: .5rem; 
+}
+
+.message{
+    color : var(--white);
+}
