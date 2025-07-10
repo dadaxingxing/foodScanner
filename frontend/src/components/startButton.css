@@ -1,0 +1,33 @@
+:root {
+    --yellow: #FF6B00;
+}
+
+
+.button_frame {
+    padding: .5rem;
+    background-color: var(--yellow);
+    
+    font-weight: 600;
+    color: white;
+    font-size: 1.25rem;
+    white-space: nowrap;
+    border-color: var(--yellow);
+    border-width: 1px;
+}
+
+.button_frame:hover{
+    color: white;
+}
+
+.button_frame:active{
+    background-color: transparent; 
+    /* transform: scale(.10); */
+
+}
+
+
+.button_text {
+    line-height: 1.5rem;
+}
+
+
