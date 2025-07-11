@@ -15,13 +15,13 @@ function App() {
     <div className='scanner d-flex flex-column justify-content-center align-items-center'>
       <div className='container'>
 
-        <div className='row'>
-          <div className='d-flex justify-content-center flex-row'>
+        <div className='row gap-4'>
+          <div className='d-flex justify-content-center flex-row col-12'>
             <div className='scanner_container d-flex justify-content-center align-items-center flex-column'>
 
               <div className='text scanner_text'>Scan Barcode Below</div>
 
-              <div className='camera_wrapper'>
+              <div className='camera_wrapper px-2'>
                 <BarcodeScanner
                   onUpdate={(err, result) => {
                     if (result) setFoodCode(result.text);
@@ -29,9 +29,14 @@ function App() {
                   }}
                 />
               </div>
-
-
             </div>
+          </div>
+
+          <div className='col-12 d-flex justify-content-center'>
+              <StartButton
+                width='31.25rem'
+                height='2.5rem'
+              >Extract Barcode</StartButton>
           </div>
         </div>
 
