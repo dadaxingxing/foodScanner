@@ -4,10 +4,9 @@
     --white: #F6F6F6;
     --darker-white: #E8E7E7;
 
-    --bold: 600;
+    --bold: 700;
 
 }
-
 
 body{
     background-color: black;
@@ -52,4 +51,11 @@ body{
 .camera_wrapper video {
     object-fit: cover;
     border-radius: 1.5rem;
+}
+
+
+.data{
+    background-color: var(--darker-white);
+    width: 100%;
+    height: 120vh;
 }
