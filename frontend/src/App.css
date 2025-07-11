@@ -20,7 +20,6 @@ body{
     height: 49vh;
 }
 
-
 .scanner_container{
     background-color: transparent;
     width: 31.25rem;
@@ -41,4 +40,16 @@ body{
 
 .scanner_text {
     font-size: 1.25rem;
+}
+
+.camera_wrapper {
+
+    width: 100%;
+    max-width: 23.6rem;
+    max-height: 3.125rem;
+}
+
+.camera_wrapper video {
+    object-fit: cover;
+    border-radius: 1.5rem;
 }

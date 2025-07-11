@@ -16,18 +16,19 @@ function App() {
       <div className='container'>
 
         <div className='row'>
-          <div className='col-6 offset-3'>
+          <div className='d-flex justify-content-center flex-row'>
             <div className='scanner_container d-flex justify-content-center align-items-center flex-column'>
 
               <div className='text scanner_text'>Scan Barcode Below</div>
-              <BarcodeScanner
-                width={100}
-                height={100}
-                onUpdate={(err, result) => {
-                  if (result) setFoodCode(result.text);
-                  else console.log(err); 
-                }}
-              />
+
+              <div className='camera_wrapper'>
+                <BarcodeScanner
+                  onUpdate={(err, result) => {
+                    if (result) setFoodCode(result.text);
+                    else console.log(err); 
+                  }}
+                />
+              </div>
 
 
             </div>
