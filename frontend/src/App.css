@@ -28,11 +28,13 @@ body{
 
     /*border: dashed 1px var(--white); */
     gap: 2rem;
+
+    
 }
 
 .text {
     font-family: 'Montserrat', Helvetica;
-    font-size: var(--bold);
+    font-size: 1.25rem;
     color: var(--white);
     font-weight: var(--bold);
 }
