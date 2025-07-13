@@ -8,7 +8,7 @@ function CardData() {
             <div className='text'>Nutrition Info</div>
           </div>
 
-
+          
       </div>  
     );
 }

@@ -55,7 +55,9 @@ body{
     border-radius: 1.5rem;
 }
 
-
+/*                       width: { ideal: 150 },
+                      height: { ideal: 75 },
+                      aspectRatio: 7.5 */
 .data{
     background-color: var(--darker-white);
     width: 100%;

@@ -23,9 +23,15 @@ function App() {
 
                 <div className='camera_wrapper px-2'>
                   <BarcodeScanner
+                    videoConstraints={{
+                      width: { ideal: 150 },
+                      height: { ideal: 75 },
+                      aspectRatio: 7.5
+
+                    }}
                     onUpdate={(err, result) => {
-                      if (result) setFoodCode(result.text);
-                      else console.log(err); 
+                      if (result) console.log(result.text);
+                      else console.log('nothing'); 
                     }}
                   />
                 </div>
