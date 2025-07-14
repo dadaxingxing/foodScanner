@@ -1,0 +1,7 @@
+.cam_wrap{
+    border-radius: 1.5rem;
+    /* width: 100%;
+    max-width: 23.6rem;
+    max-height: 3.125rem; */
+    aspect-ratio: 7.5;
+}   

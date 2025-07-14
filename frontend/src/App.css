@@ -43,17 +43,17 @@ body{
     font-size: 1.25rem;
 }
 
-.camera_wrapper {
+/* .camera_wrapper {
 
     width: 100%;
     max-width: 23.6rem;
     max-height: 3.125rem;
-}
+} */
 
-.camera_wrapper video {
+/* .camera_wrapper video {
     object-fit: cover;
     border-radius: 1.5rem;
-}
+} */
 
 /*                       width: { ideal: 150 },
                       height: { ideal: 75 },

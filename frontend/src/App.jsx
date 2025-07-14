@@ -6,6 +6,8 @@ import BarcodeScanner from "react-qr-barcode-scanner";
 import Popup from './components/popup';
 import StartButton from './components/startButton';
 import CardData from './components/cardData';
+import Camera from './components/camera';
+
 
 function App() {
   const [foodCode, setFoodCode] = useState(0)
@@ -21,8 +23,9 @@ function App() {
 
                 <div className='text scanner_text'>Scan Barcode Below</div>
 
-                <div className='camera_wrapper px-2'>
-                  <BarcodeScanner
+                <div className='px-2'>
+                  
+                  {/* <BarcodeScanner
                     videoConstraints={{
                       width: { ideal: 150 },
                       height: { ideal: 75 },
@@ -33,9 +36,11 @@ function App() {
                       if (result) console.log(result.text);
                       else console.log('nothing'); 
                     }}
-                  />
+                  /> */}
+
+                  <Camera onResult={(text) => setFoodCode(text)}/>
                 </div>
-              </div>
+              </div>  
             </div>
 
             <div className='col-12 d-flex justify-content-center'>
