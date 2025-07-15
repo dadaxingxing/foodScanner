@@ -9,35 +9,47 @@ function Camera( { onResult } ) {
 
 
     useEffect( () => {
-
+        const constrants = {
+            video: {
+                aspectRatio: 7.5,
+                width: 640,
+                height: 480
+            }
+        }
+        let timer = null;
         codeReader.current = new BrowserMultiFormatReader();
-        codeReader.current.decodeFromVideoDevice(null, videoRef.current, (result, err) => {
+        codeReader.current.decodeFromVideoDevice(
+            null, 
+            videoRef.current,  
+            (result, err) => {
 
             if (isCoolDown.current) return;
-            isCoolDown.current = true;
-            setTimeout(() => {
-                isCoolDown.current = false;
-            }, 2000)
-            
             
             if (result) {
+                isCoolDown.current = true;
                 
+                timer = setTimeout(() => {
+                    isCoolDown.current = false;
+                }, 1000);
+
                 const text = result.getText();
                 console.log(text);
                 onResult(text);
                 
             } else if (err && !(err instanceof NotFoundException)) {
                 console.log(err);
+            }},
+            {
+                formats: [BarcodeFormat.EAN_13, BarcodeFormat.UPC_A]
             }
-         },
-        {
-            formats: [BarcodeFormat.EAN_13, BarcodeFormat.UPC_A]
-        }
         );
 
         return () => {
             if (codeReader.current) {
                 codeReader.current.reset();
+            }
+            if (timer) {
+                clearTimeout(timer);
             }
         };
     }, [onResult]);
