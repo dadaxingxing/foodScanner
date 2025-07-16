@@ -11,8 +11,8 @@ app.secret_key = 'abc'
 
 @app.route('/api/get_cal/<barcode>', methods=['GET'])
 def get_cal(barcode):
-    # if request.method != 'GET':
-    #     return jsonify({'message': 'invalid request type'}), 400
+    if request.method != 'GET':
+        return jsonify({'message': 'invalid request type'}), 400
 
     
     result = requests.get(f'https://world.openfoodfacts.net/api/v2/product/{barcode}?fields=product_name,nutriments,serving_size,product_quantity').json()
@@ -37,7 +37,6 @@ def get_cal(barcode):
     total = {}
     product = result['product']
     status = inferProductUnit(product) and ('product_quantity' in product)
-    print('product_quantity' in product, inferProductUnit(product))
     total['status'] = status
 
     if status:

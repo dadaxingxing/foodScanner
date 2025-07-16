@@ -7,15 +7,8 @@ function Camera( { onResult } ) {
     const codeReader = useRef(null);
     const isCoolDown = useRef(false);
 
-
     useEffect( () => {
-        const constrants = {
-            video: {
-                aspectRatio: 7.5,
-                width: 640,
-                height: 480
-            }
-        }
+
         let timer = null;
         codeReader.current = new BrowserMultiFormatReader();
         codeReader.current.decodeFromVideoDevice(
@@ -33,15 +26,12 @@ function Camera( { onResult } ) {
                 }, 1000);
 
                 const text = result.getText();
-                console.log(text);
+                console.log('Barcode Found!');
                 onResult(text);
                 
             } else if (err && !(err instanceof NotFoundException)) {
                 console.log(err);
             }},
-            {
-                formats: [BarcodeFormat.EAN_13, BarcodeFormat.UPC_A]
-            }
         );
 
         return () => {

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-import BarcodeScanner from "react-qr-barcode-scanner";
+import axios from 'axios';
 
 import Popup from './components/popup';
 import StartButton from './components/startButton';
@@ -10,8 +10,33 @@ import Camera from './components/camera.jsx';
 
 
 function App() {
-  const [foodCode, setFoodCode] = useState(0)
+  const [foodCode, setFoodCode] = useState(0);
+  const [nutrData, setNutrData] = useState(null);
+  
+  const handleBarrcodeExtraction = async () => {
+    if (!foodCode) return;
 
+    const strFoodCode = foodCode.toString();
+    if (strFoodCode.length !== 12 && strFoodCode.length !== 13 && /^\d+$/.test(strFoodCode)) {
+      console.log('Error: Invalid barcode format.');
+      return;
+    }
+
+    try {
+      const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/food/${foodCode}`);
+      if (response.data) {
+        setNutrData(response.data);
+      }
+    } catch (error) {
+      console.log(`Error: ${error}`);
+      setNutrData(null);
+    } finally {
+      console.log('Extraction complete, following is data:')
+      console.log(nutrData);
+    }
+
+  }
+  
   return (
     <>
       <div className='scanner d-flex flex-column justify-content-center align-items-center'>
@@ -33,6 +58,7 @@ function App() {
                 <StartButton
                   width='31.25rem'
                   height='2.5rem'
+                  onClick={() => handleBarrcodeExtraction()}
                 >Extract Barcode</StartButton>
             </div>
           </div>
