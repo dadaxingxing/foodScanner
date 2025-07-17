@@ -15,15 +15,15 @@ function App() {
   
   const handleBarrcodeExtraction = async () => {
     if (!foodCode) return;
-
+    
     const strFoodCode = foodCode.toString();
     if (strFoodCode.length !== 12 && strFoodCode.length !== 13 && /^\d+$/.test(strFoodCode)) {
       console.log('Error: Invalid barcode format.');
       return;
     }
-
+    
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/food/${foodCode}`);
+      const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/get_cal/${foodCode}`);
       if (response.data) {
         setNutrData(response.data);
       }
@@ -34,9 +34,15 @@ function App() {
       console.log('Extraction complete, following is data:')
       console.log(nutrData);
     }
-
+    
   }
   
+  useEffect(() => {
+    setFoodCode(3017620429484);
+  }, []);
+
+  console.log(foodCode);
+
   return (
     <>
       <div className='scanner d-flex flex-column justify-content-center align-items-center'>
@@ -58,7 +64,7 @@ function App() {
                 <StartButton
                   width='31.25rem'
                   height='2.5rem'
-                  onClick={() => handleBarrcodeExtraction()}
+                  handleBarrcodeExtraction={handleBarrcodeExtraction}
                 >Extract Barcode</StartButton>
             </div>
           </div>
@@ -78,8 +84,9 @@ function App() {
       </div>
     </>
 
-
-  );
+);
 }
+
+
 
 export default App;

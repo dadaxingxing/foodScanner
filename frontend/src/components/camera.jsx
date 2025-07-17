@@ -27,6 +27,7 @@ function Camera( { onResult } ) {
 
                 const text = result.getText();
                 console.log('Barcode Found!');
+                
                 onResult(text);
                 
             } else if (err && !(err instanceof NotFoundException)) {

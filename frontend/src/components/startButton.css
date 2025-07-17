@@ -19,6 +19,7 @@
     border-width: 1px;
     border-style: solid;
 
+    cursor: pointer;
     color: var(--black)   
 }
 
@@ -28,15 +29,17 @@
     border-color: var(--green);
     color: var(--white);
 
-    transition: all 0.2s ease;
-
 }
 
 .button_text {
     line-height: 1.5rem;
     font-family: "Montserrat", Helvetica, sans-serif;
     font-weight: var(--bold);
-    
+    user-select: none;
 }
 
-
+.no_select {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
