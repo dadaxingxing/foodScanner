@@ -51,9 +51,9 @@ def get_cal(barcode):
     if status:
         scale_factor = int(product['product_quantity']) / 100
 
-        total['fat_cal'] = fat_cal_100g * scale_factor
-        total['carb_cal'] = carb_cal_100g * scale_factor
-        total['protein_cal'] = protein_cal_100g * scale_factor
+        total['fat_cal'] = ceil(fat_cal_100g * scale_factor)
+        total['carb_cal'] = ceil(carb_cal_100g * scale_factor)
+        total['protein_cal'] = ceil(protein_cal_100g * scale_factor)
         total['total_cal'] = total['carb_cal'] + total['protein_cal'] + total['fat_cal']
 
     final_result = {
