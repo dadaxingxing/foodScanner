@@ -36,3 +36,8 @@
 
     position: absolute;
 }
+
+.cardBottom {
+    height: 100%;
+    color: var(--black);
+}
