@@ -1,12 +1,20 @@
+import os
 import requests
 import pprint
 from flask import Flask, request, jsonify
+from flask_cors import CORS
+from dotenv import load_dotenv
 
 from handleParsing import parseServingSize
 from inferUnit import inferProductUnit
 
+load_dotenv()
+
 app = Flask(__name__)
 app.secret_key = 'abc'
+
+allowed_origins = os.getenv('ALLOWED_ORIGINS', '').split(',') 
+CORS(app, origins=[origins for origins in allowed_origins])
 
 
 @app.route('/api/get_cal/<barcode>', methods=['GET'])
