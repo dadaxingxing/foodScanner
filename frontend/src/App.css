@@ -26,7 +26,6 @@ body{
     border-radius: 0.5rem;
     background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23ffffff' stroke-width='4' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
 
-    /*border: dashed 1px var(--white); */
     gap: 2rem;
 
     
@@ -43,21 +42,6 @@ body{
     font-size: 1.25rem;
 }
 
-/* .camera_wrapper {
-
-    width: 100%;
-    max-width: 23.6rem;
-    max-height: 3.125rem;
-} */
-
-/* .camera_wrapper video {
-    object-fit: cover;
-    border-radius: 1.5rem;
-} */
-
-/*                       width: { ideal: 150 },
-                      height: { ideal: 75 },
-                      aspectRatio: 7.5 */
 .data{
     background-color: var(--darker-white);
     width: 100%;

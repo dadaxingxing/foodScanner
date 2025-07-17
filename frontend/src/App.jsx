@@ -24,24 +24,25 @@ function App() {
     
     try {
       const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/get_cal/${foodCode}`);
-      if (response.data) {
-        setNutrData(response.data);
-      }
+      console.log('Response: Extraction Successful!')
+      setNutrData(response.data);
+
     } catch (error) {
       console.log(`Error: ${error}`);
       setNutrData(null);
-    } finally {
-      console.log('Extraction complete, following is data:')
-      console.log(nutrData);
     }
     
   }
-  
+
+  useEffect(() => {
+    console.log(nutrData);
+  }, [nutrData]);
+
   useEffect(() => {
     setFoodCode(3017620429484);
   }, []);
 
-  console.log(foodCode);
+  // console.log(foodCode);
 
   return (
     <>
@@ -77,7 +78,7 @@ function App() {
             <div className='container d-flex justify-content-center align-items-center'>
 
               <div className='row'>
-                  <CardData />
+                  <CardData data={nutrData}/>
               </div>
 
             </div>
@@ -86,7 +87,5 @@ function App() {
 
 );
 }
-
-
 
 export default App;

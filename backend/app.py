@@ -57,7 +57,7 @@ def get_cal(barcode):
 
     final_result = {
         'food_name': product_name,
-        '100g': {
+        'g100': {
             'fat_cal_100g': fat_cal_100g,
             'carb_cal_100g': carb_cal_100g,
             'protein_cal_100g': protein_cal_100g,
