@@ -4,6 +4,7 @@ import pprint
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
+from math import ceil
 
 from handleParsing import parseServingSize
 from inferUnit import inferProductUnit
@@ -58,10 +59,10 @@ def get_cal(barcode):
     final_result = {
         'food_name': product_name,
         'g100': {
-            'fat_cal_100g': fat_cal_100g,
-            'carb_cal_100g': carb_cal_100g,
-            'protein_cal_100g': protein_cal_100g,
-            'total_cal_100g': total_cal_100g
+            'fat_cal_100g': ceil(fat_cal_100g),
+            'carb_cal_100g': ceil(carb_cal_100g),
+            'protein_cal_100g': ceil(protein_cal_100g),
+            'total_cal_100g': ceil(total_cal_100g)
 
         },
         'total': total

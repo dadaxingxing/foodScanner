@@ -5,7 +5,8 @@
     --darker-white: #E8E7E7;
 
     --bold: 700;
-
+    --semiBold: 600;
+    --regular: 400
 }
 
 .cardContainer{
@@ -40,4 +41,26 @@
 .cardBottom {
     height: 100%;
     color: var(--black);
+    font-family: 'Montserrat', Helvetica;
+
 }
+
+
+.foodName {
+    text-align: center;
+    font-weight: var(--bold);
+    font-size: 2rem;
+}
+
+.subHeading {
+    line-height: 3rem;
+    text-indent: 3rem;
+    font-weight: var(--semiBold);
+    font-size: 1.5rem;
+}
+
+.indivEntry {
+    font-weight: var(--regular);
+    text-indent: 6rem;
+    line-height: 2rem;
+}   
