@@ -12,7 +12,12 @@ import Camera from './components/camera.jsx';
 function App() {
   const [foodCode, setFoodCode] = useState(0);
   const [nutrData, setNutrData] = useState(null);
-  
+  const [toastTrigger, setToastTrigger] = useState(0);
+
+  const showMessage = () => {
+    setToastTrigger(prev => prev + 1);
+  };
+
   const handleBarrcodeExtraction = async () => {
     if (!foodCode) return;
     
@@ -29,6 +34,7 @@ function App() {
 
     } catch (error) {
       console.log(`Error: ${error}`);
+      console.log(error.response.data.message)
       setNutrData(null);
     }
     
@@ -38,14 +44,21 @@ function App() {
     console.log(nutrData);
   }, [nutrData]);
 
-  useEffect(() => {
-    setFoodCode(3017620429484);
-  }, []);
+  // useEffect(() => {
+  //   setFoodCode(3017620429484);
+  // }, []);
 
-  // console.log(foodCode);
-
+  // console.log(toastTrigger);
+  
   return (
     <>
+      <Popup
+       message='monkey'
+       trigger={toastTrigger} 
+      />
+
+      <button onClick={showMessage}>click me</button>
+
       <div className='scanner d-flex flex-column justify-content-center align-items-center'>
         <div className='container'>
 

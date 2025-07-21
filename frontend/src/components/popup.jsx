@@ -1,10 +1,19 @@
 import './popup.css';
+import { useEffect, useState } from 'react';
+    
+function Popup({message, trigger, duration = 2000}) {
+    const [visible, setVisible] = useState(false); 
 
 
-function Popup({message}) {
+    useEffect(() => {
+        setVisible(true);
+        const timeOut = setTimeout(() => setVisible(false), duration);
+        return () => clearTimeout(timeOut);
+    }, [trigger]);
+
     return (
-        <div className='message_container'>
-            <div className='message'>
+        <div className={`message_container ${visible ? 'show' : ''} `} >
+            <div className='message d-flex justify-content-center align-items-center'>
                 {message}
             </div>
         </div>

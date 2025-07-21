@@ -5,7 +5,7 @@ function CardData({ data }) {
     return (
       <div className='cardContainer px-0'>
           <div className='cardTop d-flex justify-content-center align-items-center'>
-            <div className='text'>{data?.food_name ? `😋 ${data.food_name}` : 'Nutrition Info'} </div>
+            <div className='title'>{data?.food_name ? `😋 ${data.food_name}` : 'Nutrition Info'} </div>
           </div>
 
           <div className='cardBottom d-flex justify-content-center align-items-center flex-column'>

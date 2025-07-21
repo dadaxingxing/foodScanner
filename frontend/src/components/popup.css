@@ -1,16 +1,43 @@
 :root{
-    --red: #ff00008b;
-    --white: #ffffff;
+    --black: #161616;
+    --green: #CFFFE2;
+    --white: #F6F6F6;
+    --darker-white: #E8E7E7;
+
+    --bold: 700;
+    --semiBold: 600;
+    --regular: 400
 }
 
 .message_container{
     white-space: nowrap;
     display: inline-block;
-    background-color: var(--red);
-    border-radius: 1rem;
+    background-color: var(--green);
+    border-radius: .5rem;
     padding: .5rem; 
+    width: 7rem;
+    height: 2.5rem;
+
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.10);
+
+}
+
+.message_container.show{
+    opacity: 1;
+    transform: translate(-50%, 30px);
+    pointer-events: auto;
 }
 
 .message{
-    color : var(--white);
+    color : var(--black);
+    font-family: 'Montserrat', Helvetica;
+    font-size: 1.25rem;
+    font-weight: var(--semiBold);
 }
