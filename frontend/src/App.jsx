@@ -18,27 +18,27 @@ function App() {
   
   const handleBarrcodeExtraction = async () => {
     if (!foodCode) {
-      setMessage('Error: Please scan a barcode first.');
+      setMessage('🔴Error: Please scan a barcode first.');
       setCount(prev => prev + 1);
       return;
     }
     
     const strFoodCode = foodCode.toString();
     if (strFoodCode.length !== 12 && strFoodCode.length !== 13 && /^\d+$/.test(strFoodCode)) {
-      setMessage('Error: Invalid barcode format.');
+      setMessage('🔴Error: Invalid barcode format.');
       setCount(prev => prev + 1);
       return;
     }
     
     try {
       const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/get_cal/${foodCode}`);
-      setMessage('Response: Extraction Successful!');
+      setMessage('🟢Response: Extraction Successful!');
       setCount(prev => prev + 1);
       setNutrData(response.data);
       
     } catch (error) {
     
-      setMessage(`Error: ${error.response.data.message}`);
+      setMessage(`🔴Error: ${error.response.data.message}`);
       setCount(prev => prev + 1);
       setNutrData(null);
     }
