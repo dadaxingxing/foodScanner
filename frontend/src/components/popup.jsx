@@ -1,7 +1,7 @@
 import './popup.css';
 import { useEffect, useState } from 'react';
     
-function Popup({message, trigger, duration = 800}) {
+function Popup({message, trigger, duration = 1200}) {
     const [visible, setVisible] = useState(false); 
 
 

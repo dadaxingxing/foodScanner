@@ -14,7 +14,7 @@
     background-color: var(--green);
     border-radius: .5rem;
     padding: .5rem; 
-    width: 7rem;
+    /* width: 7rem; */
     height: 2.5rem;
 
     position: fixed;
