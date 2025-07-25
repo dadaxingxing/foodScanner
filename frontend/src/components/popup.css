@@ -11,7 +11,6 @@
 
 .message_container{
     white-space: nowrap;
-    display: inline-block;
     background-color: var(--green);
     border-radius: .5rem;
     padding: .5rem; 

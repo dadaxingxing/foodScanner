@@ -13,32 +13,46 @@ function App() {
   const [foodCode, setFoodCode] = useState(0);
   const [nutrData, setNutrData] = useState(null);
   const [toastTrigger, setToastTrigger] = useState(0);
-
-  const showMessage = () => {
-    setToastTrigger(prev => prev + 1);
-  };
-
+  const [message, setMessage] = useState('');
+  const [count, setCount] = useState(0);
+  
   const handleBarrcodeExtraction = async () => {
-    if (!foodCode) return;
+    if (!foodCode) {
+      setMessage('Error: Please scan a barcode first.');
+      setCount(prev => prev + 1);
+      return;
+    }
     
     const strFoodCode = foodCode.toString();
     if (strFoodCode.length !== 12 && strFoodCode.length !== 13 && /^\d+$/.test(strFoodCode)) {
-      console.log('Error: Invalid barcode format.');
+      setMessage('Error: Invalid barcode format.');
+      setCount(prev => prev + 1);
       return;
     }
     
     try {
       const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/get_cal/${foodCode}`);
-      console.log('Response: Extraction Successful!')
+      setMessage('Response: Extraction Successful!');
+      setCount(prev => prev + 1);
       setNutrData(response.data);
-
+      
     } catch (error) {
-      console.log(`Error: ${error}`);
-      console.log(error.response.data.message)
+    
+      setMessage(`Error: ${error.response.data.message}`);
+      setCount(prev => prev + 1);
       setNutrData(null);
     }
-    
   }
+  
+  useEffect(() => {
+    if (count !== 0) {
+      const showMessage = () => {
+        setToastTrigger(prev => prev + 1);
+      };
+      
+      showMessage();
+    }    
+  }, [count]);
 
   useEffect(() => {
     console.log(nutrData);
@@ -49,15 +63,16 @@ function App() {
   // }, []);
 
   // console.log(toastTrigger);
-  
+
+
   return (
     <>
-      <Popup
-       message='monkey'
-       trigger={toastTrigger} 
-      />
-
-      <button onClick={showMessage}>click me</button>
+      {toastTrigger > 0 && 
+        <Popup
+        message={message}
+        trigger={toastTrigger} 
+        />      
+      }
 
       <div className='scanner d-flex flex-column justify-content-center align-items-center'>
         <div className='container'>
