@@ -54,13 +54,10 @@ function App() {
     }    
   }, [count]);
 
-  useEffect(() => {
-    console.log(nutrData);
-  }, [nutrData]);
 
-  // useEffect(() => {
-  //   setFoodCode(3017620429484);
-  // }, []);
+  useEffect(() => {
+    setFoodCode(3017620429484);
+  }, []);
 
   // console.log(toastTrigger);
 
@@ -84,7 +81,10 @@ function App() {
                 <div className='text scanner_text'>Scan Barcode Below</div>
 
                 <div className='px-2'>
-                  <Camera onResult={(text) => setFoodCode(text)}/>
+                  <Camera onResult={(text) => {
+                    setMessage(`🟢Response: Barcode Found (${text})`);
+                    setCount(prev => prev + 1);
+                    setFoodCode(text)}}/>
                 </div>
               </div>  
             </div>

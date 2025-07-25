@@ -7,6 +7,7 @@ function Camera( { onResult } ) {
     const codeReader = useRef(null);
     const isCoolDown = useRef(false);
 
+
     useEffect( () => {
 
         let timer = null;
