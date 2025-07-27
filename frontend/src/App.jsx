@@ -15,14 +15,18 @@ function App() {
   const [toastTrigger, setToastTrigger] = useState(0);
   const [message, setMessage] = useState('');
   const [count, setCount] = useState(0);
+  const [wait, setWait] = useState(false);
+
   
   const handleBarrcodeExtraction = async () => {
+    if (wait) return;
+
     if (!foodCode) {
       setMessage('🔴Error: Please scan a barcode first.');
       setCount(prev => prev + 1);
       return;
     }
-    
+
     const strFoodCode = foodCode.toString();
     if (strFoodCode.length !== 12 && strFoodCode.length !== 13 && /^\d+$/.test(strFoodCode)) {
       setMessage('🔴Error: Invalid barcode format.');
@@ -30,6 +34,7 @@ function App() {
       return;
     }
     
+    setWait(true);  
     try {
       const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/get_cal/${foodCode}`);
       setMessage('🟢Response: Extraction Successful!');
@@ -41,6 +46,8 @@ function App() {
       setMessage(`🔴Error: ${error.response.data.message}`);
       setCount(prev => prev + 1);
       setNutrData(null);
+    } finally {
+      setWait(false);
     }
   }
   
@@ -91,6 +98,7 @@ function App() {
 
             <div className='col-12 d-flex justify-content-center'>
                 <StartButton
+                  wait={wait}
                   width='31.25rem'
                   height='2.5rem'
                   handleBarrcodeExtraction={handleBarrcodeExtraction}

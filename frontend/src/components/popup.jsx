@@ -21,4 +21,4 @@ function Popup({message, trigger, duration = 1200}) {
 }
 
 
-export default Popup;
+export default Popup;   

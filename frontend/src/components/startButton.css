@@ -31,6 +31,14 @@
 
 }
 
+.button_frame--loading{
+    background-color: transparent; 
+    border-color: var(--green);
+    color: var(--white);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .button_text {
     line-height: 1.5rem;
     font-family: "Montserrat", Helvetica, sans-serif;

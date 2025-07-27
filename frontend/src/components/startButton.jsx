@@ -9,13 +9,14 @@ function StartButton({
     width='5.6rem', 
     radius='.25rem', 
     font_size='1.25rem',
-    handleBarrcodeExtraction
+    handleBarrcodeExtraction,
+    wait
     }) {
         
     return (
         <div 
             role='button' 
-            className='no_select button_frame d-flex justify-content-center align-items-center' 
+            className={`no_select button_frame d-flex justify-content-center align-items-center ${wait ? 'button_frame--loading': ''}`}  
             style={{
                 height,
                 width,
@@ -24,7 +25,7 @@ function StartButton({
             }}
             onClick={() => handleBarrcodeExtraction()}
         >
-            <div className='button_text'>{children}</div>
+            <div className='button_text'>{`${wait ? 'loading...' : children}`}</div>
         </div>
     )
 };
