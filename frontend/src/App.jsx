@@ -114,7 +114,9 @@ function App() {
             <div className='container d-flex justify-content-center align-items-center'>
 
               <div className='row'>
-                  <CardData data={nutrData}/>
+                    <div className='col-12'>
+                      <CardData data={nutrData}/>
+                    </div>
               </div>
 
             </div>

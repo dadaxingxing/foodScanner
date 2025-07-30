@@ -11,7 +11,7 @@
 
 .cardContainer{
     background-color: var(--white);
-    width: clamp(18rem, 100vw, 30rem);
+    width: clamp(18rem, 10.4rem + 37.6vw, 30rem);
     height: 35rem;
     
     border-radius: 1rem;
@@ -55,13 +55,13 @@
 
 .subHeading {
     line-height: 3rem;
-    text-indent: 3rem;
+    text-indent: 2rem;
     font-weight: var(--semiBold);
     font-size: clamp(1rem, 5vw, 1.5rem);
 }
 
 .indivEntry {
     font-weight: var(--regular);
-    text-indent: 6rem;
+    text-indent: 4rem;
     line-height: 2rem;
 }   
