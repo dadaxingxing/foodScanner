@@ -37,7 +37,7 @@ function App() {
     setWait(true);  
     try {
       const response = await axios.get(`${import.meta.env.VITE_BASE_BACKEND_URL}/api/get_cal/${foodCode}`);
-      setMessage('🟢Response: Extraction Successful!');
+      setMessage('🟢Success: Extraction Complete!');
       setCount(prev => prev + 1);
       setNutrData(response.data);
       
@@ -89,7 +89,7 @@ function App() {
 
                 <div className='px-2'>
                   <Camera onResult={(text) => {
-                    setMessage(`🟢Response: Barcode Found (${text})`);
+                    setMessage(`🟢Success: Barcode Found (${text})`);
                     setCount(prev => prev + 1);
                     setFoodCode(text)}}/>
                 </div>

@@ -2,7 +2,6 @@ import './startButton.css';
 import { useState, useEffect, useRef } from 'react';
 
 
-
 function StartButton({
     children, 
     height='2.5rem', 
@@ -25,7 +24,7 @@ function StartButton({
             }}
             onClick={() => handleBarrcodeExtraction()}
         >
-            <div className='button_text'>{`${wait ? 'loading...' : children}`}</div>
+            <div className='button_text'>{`${wait ? 'Loading...' : children}`}</div>
         </div>
     )
 };

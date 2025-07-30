@@ -26,9 +26,7 @@ function Camera( { onResult } ) {
                     isCoolDown.current = false;
                 }, 1000);
 
-                const text = result.getText();
-                console.log('Barcode Found!');
-                
+                const text = result.getText();                
                 onResult(text);
                 
             } else if (err && !(err instanceof NotFoundException)) {
