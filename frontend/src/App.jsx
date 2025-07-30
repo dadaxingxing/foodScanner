@@ -62,9 +62,9 @@ function App() {
   }, [count]);
 
 
-  useEffect(() => {
-    setFoodCode(3017620429484);
-  }, []);
+  // useEffect(() => {
+  //   setFoodCode(3017620429484);
+  // }, []);
 
   // console.log(toastTrigger);
 
