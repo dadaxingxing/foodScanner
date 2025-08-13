@@ -1,48 +1,60 @@
 import './camera.css';
-import { useEffect, useRef } from 'react';
-import { BarcodeFormat, BrowserMultiFormatReader, NotFoundException } from '@zxing/library';
+import { useState, useEffect, useRef } from 'react';
+import { BrowserMultiFormatReader, NotFoundException } from '@zxing/library';
 
-function Camera( { onResult } ) {
+function Camera( { onResult, active } ) {
     const videoRef = useRef(null);
     const codeReader = useRef(null);
-    const isCoolDown = useRef(false);
+    
+    // const startScanner = () => {        
+    //     codeReader.current = new BrowserMultiFormatReader();
+    //     codeReader.current.decodeFromVideoDevice(
+    //         null, 
+    //         videoRef.current,  
+    //         (result, err, controls) => {
+                
+    //             if (isCoolDown.current) return;
+                
+    //             if (result) {
+    //                 isCoolDown.current = true;
+                    
+                    
+    //                 const text = result.getText();                
+    //                 onResult(text);
+                    
+    //                 timer.current = setTimeout(() => {
+    //                     isCoolDown.current = false;
+    //                 }, 1000);
+    //             } else if (err && !(err instanceof NotFoundException)) {
+    //                 console.log(err);
+    //             }},
+    //     );
+    // };
 
-
+    
     useEffect( () => {
 
-        let timer = null;
+        if (!active) {
+            if (codeReader.current) codeReader.current.reset();
+            return;
+        }
+        
         codeReader.current = new BrowserMultiFormatReader();
         codeReader.current.decodeFromVideoDevice(
-            null, 
-            videoRef.current,  
+            null, videoRef.current,
             (result, err) => {
-
-            if (isCoolDown.current) return;
-            
-            if (result) {
-                isCoolDown.current = true;
-                
-                timer = setTimeout(() => {
-                    isCoolDown.current = false;
-                }, 1000);
-
-                const text = result.getText();                
-                onResult(text);
-                
-            } else if (err && !(err instanceof NotFoundException)) {
-                console.log(err);
-            }},
-        );
+                if (err && !(err instanceof NotFoundException)) {
+                    console.log(err);
+                } else if (result) {
+                    onResult(result.getText());
+                }
+            }
+        )
 
         return () => {
-            if (codeReader.current) {
-                codeReader.current.reset();
-            }
-            if (timer) {
-                clearTimeout(timer);
-            }
+            if (codeReader.current) codeReader.current.reset();
         };
-    }, [onResult]);
+    }, [active, onResult]);
 
     return (
         <video ref={ videoRef } className='cam_wrap'/>

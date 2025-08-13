@@ -16,8 +16,8 @@ function App() {
   const [message, setMessage] = useState('');
   const [count, setCount] = useState(0);
   const [wait, setWait] = useState(false);
+  const [camActive, setCamActive] = useState(false);
 
-  
   const handleBarrcodeExtraction = async () => {
     if (wait) return;
 
@@ -48,6 +48,7 @@ function App() {
       setNutrData(null);
     } finally {
       setWait(false);
+      setFoodCode(0);
     }
   }
   
@@ -77,7 +78,9 @@ function App() {
         trigger={toastTrigger} 
         />      
       }
-
+      <button onClick={() => setCamActive(true)}>
+        Start Camera
+      </button>
       <div className='scanner d-flex flex-column justify-content-center align-items-center'>
         <div className='container'>
 
@@ -88,10 +91,18 @@ function App() {
                 <div className='text scanner_text'>Scan Barcode Below</div>
 
                 <div className='px-2'>
-                  <Camera onResult={(text) => {
-                    setMessage(`🟢Success: Barcode Found (${text})`);
-                    setCount(prev => prev + 1);
-                    setFoodCode(text)}}/>
+                  <Camera 
+                  
+                    onResult={(text) => {
+                      setCamActive(false);
+                      
+                      setMessage(`🟢Success: Barcode Found (${text})`);
+                      setCount(prev => prev + 1);
+
+                      setFoodCode(text)}}
+                    active={camActive}
+                    
+                  />
                 </div>
               </div>  
             </div>
@@ -121,6 +132,7 @@ function App() {
 
             </div>
       </div>
+
     </>
 
 );
