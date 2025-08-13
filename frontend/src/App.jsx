@@ -12,9 +12,11 @@ import Camera from './components/camera.jsx';
 function App() {
   const [foodCode, setFoodCode] = useState(0);
   const [nutrData, setNutrData] = useState(null);
+
   const [toastTrigger, setToastTrigger] = useState(0);
   const [message, setMessage] = useState('');
   const [count, setCount] = useState(0);
+
   const [wait, setWait] = useState(false);
   const [camActive, setCamActive] = useState(false);
 
@@ -63,13 +65,6 @@ function App() {
   }, [count]);
 
 
-  // useEffect(() => {
-  //   setFoodCode(3017620429484);
-  // }, []);
-
-  // console.log(toastTrigger);
-
-
   return (
     <>
       {toastTrigger > 0 && 
@@ -95,7 +90,7 @@ function App() {
                   
                     onResult={(text) => {
                       setCamActive(false);
-                      
+
                       setMessage(`🟢Success: Barcode Found (${text})`);
                       setCount(prev => prev + 1);
 
