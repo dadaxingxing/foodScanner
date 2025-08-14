@@ -62,7 +62,7 @@ function App() {
                   
                     onResult={(text) => {
                       setCamActive(false);
-                      setMessage(`🟢Success: Barcode Found (${text})`);
+                      showToast(`🟢Success: Barcode Found (${text})`);
                       setFoodCode(text)}}
                     active={camActive}
                     
@@ -84,11 +84,12 @@ function App() {
         </div>
       </div>
       
-      <div className='functions'>
+      <div className='functions d-flex flex-row justify-content-center'>
 
-        <button onClick={() => setCamActive(true)}>
-          Start Camera
+        <button onClick={() => setCamActive(!camActive)}>
+          {camActive ? 'stop camera' : 'start camera'}
         </button>
+
         
       </div>
 
