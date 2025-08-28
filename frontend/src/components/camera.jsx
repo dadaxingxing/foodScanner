@@ -10,7 +10,7 @@ function Camera( { onResult, active } ) {
 
     // Runs on mount to get list of avilable cameras    
     useEffect(() => {
-
+        
     }, []);
 
     // Runs to return the next camera from the list through ID

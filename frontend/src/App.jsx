@@ -45,7 +45,7 @@ function App() {
     }
   }
   
-
+ 
   return (
     <>
       <div className='scanner d-flex flex-column justify-content-center align-items-center'>

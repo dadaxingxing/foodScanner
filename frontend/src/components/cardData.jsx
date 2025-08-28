@@ -1,6 +1,5 @@
 import './cardData.css';
 
-
 function CardData({ data }) {
     return (
       <div className='cardContainer px-0'>
