@@ -2,16 +2,11 @@ import './func_button.css';
 import React, { useState } from 'react';
 
 
-function Func_button({children, onClick}) {
-    const [background, setBackground] = useState(false);
+function Func_button({children, onClick, background}) {
 
-    const handleClick = () => {
-        onClick();
-        setBackground(!background);
-    };
 
     return (
-        <button onClick={handleClick} className={`func_button ${background ? 'default_white' : 'default_green'}`}>
+        <button onClick={onClick} className={`func_button ${background ? 'default_green' : 'default_white'}`}>
             {children}
         </button>
     );

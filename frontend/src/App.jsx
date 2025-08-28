@@ -91,7 +91,7 @@ function App() {
         {/* <button onClick={() => setCamActive(!camActive)}>
           {camActive ? 'stop camera' : 'start camera'}
         </button> */}
-        <Func_button onClick={() => setCamActive(!camActive)}>
+        <Func_button onClick={() => setCamActive(!camActive)} background={camActive}>
           {camActive ? '📷 Stop Camera' : '📷 Start Camera'}
         </Func_button>
         
