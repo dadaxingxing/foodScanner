@@ -1,0 +1,33 @@
+:root {
+    --black: #161616;
+    --green: #CFFFE2;
+    --white: #F6F6F6;
+    --darker-white: #E8E7E7;
+
+    --bold: 700;
+
+}
+
+.func_button{
+    border-radius: 2rem;
+    height: 3.37rem;
+    width: 15.8rem;
+
+    font-family: 'Montserrat', Helvetica;
+    font-weight: var(--bold);
+    font-size: 1.25rem;
+
+    border-style: none;
+    /* color: var(--green); */
+
+    box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.4);
+}
+
+
+.default_white{
+    background-color: var(--darker-white);
+}
+
+.default_green{
+    background-color: var(--green);
+}

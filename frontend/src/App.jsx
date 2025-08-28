@@ -6,6 +6,8 @@ import axios from 'axios';
 import StartButton from './components/startButton';
 import CardData from './components/cardData';
 import Camera from './components/camera.jsx';
+import Func_button from './components/func_button.jsx';
+
 import { usePopup } from './components/popup.jsx';
 
 function App() {
@@ -45,7 +47,7 @@ function App() {
     }
   }
   
- 
+  
   return (
     <>
       <div className='scanner d-flex flex-column justify-content-center align-items-center'>
@@ -84,12 +86,14 @@ function App() {
         </div>
       </div>
       
-      <div className='functions d-flex flex-row justify-content-center'>
+      <div className='functions d-flex flex-row justify-content-center align-items-center'>
 
-        <button onClick={() => setCamActive(!camActive)}>
+        {/* <button onClick={() => setCamActive(!camActive)}>
           {camActive ? 'stop camera' : 'start camera'}
-        </button>
-
+        </button> */}
+        <Func_button onClick={() => setCamActive(!camActive)}>
+          {camActive ? '📷 Stop Camera' : '📷 Start Camera'}
+        </Func_button>
         
       </div>
 
