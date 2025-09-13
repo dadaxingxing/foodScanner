@@ -65,7 +65,9 @@ function App() {
                     onResult={(text) => {
                       setCamActive(false);
                       showToast(`🟢Success: Barcode Found (${text})`);
-                      setFoodCode(text)}}
+                      setFoodCode(text);
+                    }}
+                      
                     active={camActive}
                     
                   />
@@ -96,7 +98,7 @@ function App() {
         </Func_button>
         
       </div>
-
+          
       <div className='data d-flex flex-column justify-content-center align-items-center'>
             <div className='container d-flex justify-content-center align-items-center'>
 
@@ -110,7 +112,6 @@ function App() {
       </div>
 
     </>
-
 );
 }
 
