@@ -12,7 +12,7 @@ from inferUnit import inferProductUnit
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'abc'
+app.secret_key = os.getenv('SECRET_KEY')
 
 allowed_origins = os.getenv('ALLOWED_ORIGINS', '').split(',') 
 CORS(app, origins=[origins for origins in allowed_origins])
@@ -74,4 +74,4 @@ def get_cal(barcode):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
