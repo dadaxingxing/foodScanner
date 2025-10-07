@@ -7,6 +7,7 @@ import StartButton from './components/startButton';
 import CardData from './components/cardData';
 import Camera from './components/camera.jsx';
 import Func_button from './components/func_button.jsx';
+import Questions from './components/questions.jsx';
 
 import { usePopup } from './components/popup.jsx';
 
@@ -110,7 +111,11 @@ function App() {
 
             </div>
       </div>
-
+        
+      <div className='FAQ_container d-flex flex-column justify-content-center align-items-center'>
+        <h4 className='FAQ_header'>Frequently Asked Questions</h4>
+        <Questions ques={'what is your type?'} ans={'asian baddies'}/>
+      </div>
     </>
 );
 }

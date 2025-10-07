@@ -1,0 +1,46 @@
+:root {
+    --black: #161616;
+    --green: #CFFFE2;
+    --white: #F6F6F6;
+    --darker-white: #E8E7E7;
+
+    --bold: 700;
+    --semi-bold: 600;
+}
+
+
+.ans{
+    display: none;
+}
+
+.toggle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    width: 50%;
+    height: 3rem;
+
+    background-color: rgb(100, 100, 100, 0.90);
+    color: white;
+    font-weight: var(--semi-bold);
+}
+
+
+.toggle:hover{
+    color: var(--green);
+}
+
+.icon{
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.toggle.active .icon{
+    transform: rotate(45deg);
+}
