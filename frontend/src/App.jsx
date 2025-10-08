@@ -17,7 +17,22 @@ function App() {
   const [nutrData, setNutrData] = useState(null);
   const [wait, setWait] = useState(false);
   const [camActive, setCamActive] = useState(false);
-  
+
+  const faqs = [
+    {
+      question: "What is your refund policy?",
+      answer: "We offer a 30-day refund for all purchases."
+    },
+    {
+      question: "Do you offer support?",
+      answer: "Yes, you can reach out to our 24/7 customer support team."
+    },
+    {
+      question: "Where are you located?",
+      answer: "We’re based in Los Angeles, California."
+    }
+  ];
+
   const handleBarrcodeExtraction = async () => {
     if (wait) return;
 
@@ -114,7 +129,9 @@ function App() {
         
       <div className='FAQ_container d-flex flex-column justify-content-center align-items-center'>
         <h4 className='FAQ_header'>Frequently Asked Questions</h4>
-        <Questions ques={'what is your type?'} ans={'asian baddies'}/>
+        {faqs.map((faq, ans) => (
+          <Questions key={faq.question} ques={faq.question} ans={faq.answer}/>
+        ))}
       </div>
     </>
 );

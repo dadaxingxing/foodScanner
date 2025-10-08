@@ -10,7 +10,7 @@
 
 
 .ans{
-    display: none;
+    
 }
 
 .toggle{
@@ -37,10 +37,11 @@
 }
 
 .icon{
+    display: inline-block;
     font-size: 2rem;
     transition: transform 0.3s ease;
 }
 
-.toggle.active .icon{
+.icon.active{
     transform: rotate(45deg);
 }
