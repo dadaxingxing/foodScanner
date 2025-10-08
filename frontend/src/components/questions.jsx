@@ -14,11 +14,9 @@ function Questions({ques, ans}) {
                 <span className={`icon ${isOpen ? 'active' : ''}`}>+</span>
             </button>
 
-            {isOpen && 
-                <div className='ans'>
-                    <p>{ans}</p>    
-                </div>
-            }
+            <div className={`ans ${isOpen ? 'open' : ''}`}>
+                <p>{ans}</p>    
+            </div>
         </>
     );
 };

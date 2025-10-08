@@ -127,7 +127,7 @@ function App() {
             </div>
       </div>
         
-      <div className='FAQ_container d-flex flex-column justify-content-center align-items-center'>
+      <div className='FAQ_container d-flex flex-column align-items-center'>
         <h4 className='FAQ_header'>Frequently Asked Questions</h4>
         {faqs.map((faq, ans) => (
           <Questions key={faq.question} ques={faq.question} ans={faq.answer}/>

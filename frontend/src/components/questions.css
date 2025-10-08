@@ -9,9 +9,6 @@
 }
 
 
-.ans{
-    
-}
 
 .toggle{
     display: flex;
@@ -19,13 +16,13 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-
+    
     border-radius: 1rem;
     outline: none;
     border: none;
     width: 50%;
     height: 3rem;
-
+    
     background-color: rgb(100, 100, 100, 0.90);
     color: white;
     font-weight: var(--semi-bold);
@@ -44,4 +41,16 @@
 
 .icon.active{
     transform: rotate(45deg);
+}
+
+.ans {
+  max-height: 0;               
+  overflow: hidden;            
+  transition: all 0.3s ease; 
+}
+
+.ans.open {
+  max-height: 200px;           /* open height limit (big enough for text) */
+  margin-top: 0.5rem;
+  padding: 1rem;               /* restore padding when open */
 }
