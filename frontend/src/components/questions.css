@@ -8,8 +8,6 @@
     --semi-bold: 600;
 }
 
-
-
 .toggle{
     display: flex;
     flex-direction: row;
@@ -44,13 +42,23 @@
 }
 
 .ans {
-  max-height: 0;               
-  overflow: hidden;            
-  transition: all 0.3s ease; 
+    max-height: 0;               
+    overflow: hidden;            
+    transition: all 0.3s ease; 
 }
 
 .ans.open {
-  max-height: 200px;           /* open height limit (big enough for text) */
-  margin-top: 0.5rem;
-  padding: 1rem;               /* restore padding when open */
+    max-height: 200px;           
+    margin-top: 0.5rem;
+    padding: 1rem;               
+}
+@media (max-width: 615px) {
+    .toggle{
+        width: 100%;
+        font-size: 1rem;
+
+    }
+    .icon{
+        font-size: 1.5rem;
+    }
 }
