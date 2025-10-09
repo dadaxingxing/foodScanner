@@ -20,17 +20,38 @@ function App() {
 
   const faqs = [
     {
-      question: "What is your refund policy?",
-      answer: "We offer a 30-day refund for all purchases."
+      question: "What barcodes does the app support?",
+      answer: "The app supports two common barcode types EAN-12, EAN-13, and UPC on packaged foods."
     },
     {
-      question: "Do you offer support?",
-      answer: "Yes, you can reach out to our 24/7 customer support team."
+      question: "What does the barcode calorie scanner app do?",
+      answer: "Our barcode calorie scanner lets you instantly find the nutritional information of any packaged food by simply scanning its barcode. You’ll see total calories, macros, and other details without manually typing food names."
     },
     {
-      question: "Where are you located?",
-      answer: "We’re based in Los Angeles, California."
-    }
+      question: "How accurate is the calorie information?",
+      answer: "The calorie data comes from open food facts' nutrition databases and manufacturer information. While most items are accurate, we recommend double-checking new or regional products for the most up-to-date info."
+    },
+    {
+      question: "How is this different from MyFitnessPal’s barcode scanner?",
+      answer: "This is free!"
+    },
+    {
+      question: "How do I use the app to scan a barcode?",
+      answer: "Open the app, tap the open camera button, and point your camera at the product barcode. The app will automatically detect it and display the nutritional details within seconds."
+    },
+    {
+      question: "Does the app work on both iPhone and Android?",
+      answer: "Currently our barcode calorie scanner is available only on iOS and desktop"
+    },
+    {
+      question: "Are barcode calorie scanners free?",
+      answer: "Yes! Our app offers free barcode scanning!"
+    },
+    {
+      question: "Why is my barcode not recognized?",
+      answer: "Some local or new products may not yet be in the database. You can manually enter the nutrition info once, and it’ll be saved for future scans."
+    },
+
   ];
 
   const handleBarrcodeExtraction = async () => {
