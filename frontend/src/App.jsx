@@ -129,7 +129,7 @@ function App() {
         
       <div className='FAQ_container d-flex flex-column align-items-center'>
         <h4 className='FAQ_header'>Frequently Asked Questions</h4>
-        {faqs.map((faq, ans) => (
+        {faqs.map((faq) => (
           <Questions key={faq.question} ques={faq.question} ans={faq.answer}/>
         ))}
       </div>

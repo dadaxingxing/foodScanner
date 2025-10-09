@@ -61,3 +61,8 @@ body{
     max-height: 50rem;
     padding: 2rem;
 }
+
+.FAQ_header{
+    white-space: nowrap;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+}
