@@ -49,14 +49,13 @@
 
 .ans.open {
     max-height: 200px;           
-    margin-top: 0.5rem;
-    padding: 1rem;               
+    padding: .5rem;               
 }
+
 @media (max-width: 615px) {
     .toggle{
         width: 100%;
         font-size: 1rem;
-
     }
     .icon{
         font-size: 1.5rem;

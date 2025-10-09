@@ -58,6 +58,6 @@ body{
 
 .FAQ_container{
     gap: 1rem;
-    height: 30rem;
+    max-height: 50rem;
     padding: 2rem;
 }
