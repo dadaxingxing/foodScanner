@@ -24,6 +24,8 @@
     background-color: rgb(100, 100, 100, 0.90);
     color: white;
     font-weight: var(--semi-bold);
+
+    padding: 0 1rem;
 }
 
 
@@ -44,7 +46,10 @@
 .ans {
     max-height: 0;               
     overflow: hidden;            
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
+    width: 50%; 
+    display: flex;
+    align-items: center;
 }
 
 .ans.open {
@@ -52,7 +57,8 @@
     padding: .5rem;               
 }
 
-@media (max-width: 615px) {
+
+@media (max-width: 650px) {
     .toggle{
         width: 100%;
         font-size: 1rem;
@@ -60,4 +66,14 @@
     .icon{
         font-size: 1.5rem;
     }
+
+    .ans {
+        width: 100%; 
+    }
 }
+
+@media (max-width: 350px) {
+    .questions {
+        font-size: 0.8rem;           
+    }
+} 
